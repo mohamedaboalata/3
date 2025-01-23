@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #ff99cc, #ccff99);
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            animation: gradientAnimation 5s ease-in-out infinite;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            border: 2px solid #fff;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 400px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 99, 132, 0.8);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #f44336;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        label {
+            display: block;
+            text-align: right;
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff6347;
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: #f44336;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background: linear-gradient(135deg, #ff99cc, #ccff99); }
+            50% { background: linear-gradient(135deg, #ffccff, #ffff99); }
+            100% { background: linear-gradient(135deg, #ff99cc, #ccff99); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="form-title">تسجيل الدخول</h1>
+        <form action="login-process.php" method="POST" id="login-form">
+            <label for="username" id="username-label">اسم المستخدم</label>
+            <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+
+            <label for="password" id="password-label">كلمة المرور</label>
+            <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+
+            <label for="email" id="email-label" style="display: none;">البريد الإلكتروني</label>
+            <input type="email" id="email" name="email" placeholder="أدخل البريد الإلكتروني" style="display: none;" required>
+
+            <button type="submit" id="submit-btn">تسجيل الدخول</button>
+        </form>
+
+        <div class="links">
+            <a href="#" onclick="showForgotPassword()">نسيت كلمة المرور؟</a> | 
+            <a href="#" onclick="showSignUp()">إنشاء حساب جديد</a>
+        </div>
+
+        <footer>لمسة من الإبداع</footer>
+    </div>
+
+    <script>
+        function showForgotPassword() {
+            document.getElementById('form-title').innerText = "استعادة كلمة المرور";
+            document.getElementById('username-label').style.display = "none";
+            document.getElementById('username').style.display = "none";
+            document.getElementById('password-label').style.display = "none";
+            document.getElementById('password').style.display = "none";
+            document.getElementById('email-label').style.display = "block";
+            document.getElementById('email').style.display = "block";
+            document.getElementById('submit-btn').innerText = "استعادة";
+        }
+
+        function showSignUp() {
+            document.getElementById('form-title').innerText = "إنشاء حساب جديد";
+            document.getElementById('username-label').style.display = "block";
+            document.getElementById('username').style.display = "block";
+            document.getElementById('password-label').style.display = "block";
+            document.getElementById('password').style.display = "block";
+            document.getElementById('email-label').style.display = "block";
+            document.getElementById('email').style.display = "block";
+            document.getElementById('submit-btn').innerText = "إنشاء حساب";
+        }
+    </script>
+</body>
+</html>
